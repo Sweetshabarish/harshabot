@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HarshaBot - The Nonsensical Chatbot</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffeb3b; /* Bright yellow background */
+            color: #673ab7; /* Deep purple text */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        #chatbox {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 350px;
+            max-width: 100%;
+            border: 5px solid #673ab7; /* Purple border */
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: #e91e63; /* Pink color for the heading */
+        }
+        #currentInteraction {
+            margin-bottom: 20px;
+            font-size: 20px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #userText {
+            margin: 5px 0;
+            background-color: #bbdefb; /* Light blue for user text */
+            border-radius: 10px;
+            padding: 10px;
+            width: fit-content;
+        }
+        #botText {
+            margin: 5px 0;
+            background-color: #ffe0b2; /* Light orange for bot text */
+            border-radius: 10px;
+            padding: 10px;
+            width: fit-content;
+        }
+        #userInput {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 2px dashed #673ab7; /* Dashed border for input */
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+        #sendButton {
+            padding: 10px;
+            border: none;
+            background-color: #4caf50; /* Green button */
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #sendButton:hover {
+            background-color: #388e3c; /* Darker green on hover */
+        }
+        #funFact {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #795548; /* Brown color for fun fact */
+        }
+    </style>
+</head>
+<body>
+    <div id="chatbox">
+        <h2>HarshaBot - Nonsense Guru</h2>
+        <div id="currentInteraction">
+            <div id="userText"></div>
+            <div id="botText"></div>
+        </div>
+        <input type="text" id="userInput" placeholder="Type your message... 🎉" />
+        <button id="sendButton">Send 🚀</button>
+        <div id="funFact"></div>
+    </div>
+
+    <script>
+        const responses = [
+            "Why is it like this?",
+            "How is it possible?",
+            "Like that, Like that",
+            "Hi Shabu",
+            "I am a solar system, you are my sun and moon",
+            "I worked in TCS for two years",
+            "I will give keychain to someone",
+            "Namaskaram Chelli Gaaru",
+            "I know, but I am just asking",
+            "Ok thanks",
+            "Thanks for the info sir!!..😊😊",
+            "Ok Sir, Thanks!!..🙂🙂",
+            "Ok Shabu",
+            "Aap be haso",
+            "What you are talking. No sense 😂",
+            "99 Missed Calls from Elon Musk",
+            "Karchief 🔫🔫",
+            "That's his wish, why you middle",
+            "First pronounce word properly G**du",
+            "You come here to my room if you wish re",
+            "Btw aap ladak ladki na",
+            "You are student or broker",
+            "Don't bring me in middle please",
+            "When I sat with her she went out in IoT class",
+            "Fruit is called as Pandu",
+            "Chutiye word pronounce do properly",
+            "Na Na Sala",
+            "That you should tell l**da",
+            "I know everything but I will ask sir and ma'am",
+            "I am a meme material",
+            "I am the father of IPA",
+            "Subtitles please",
+            "You have lost na why?",
+            "They will see this don't worry",
+            "I make AI to think",
+            "Don't bring me in middle please",
+            "I'm still single but you said your are mingle"
+        ];
+
+        const userTextDiv = document.getElementById('userText');
+        const botTextDiv = document.getElementById('botText');
+        const userInput = document.getElementById('userInput');
+        const sendButton = document.getElementById('sendButton');
+        const funFactDiv = document.getElementById('funFact');
+
+        sendButton.addEventListener('click', function() {
+            const userText = userInput.value;
+            if (userText) {
+                userTextDiv.textContent = `You: ${userText}`;
+                userInput.value = '';
+
+                const botResponse = responses[Math.floor(Math.random() * responses.length)];
+                botTextDiv.textContent = `Harsha: ${botResponse}`;
+
+                // Show a fun fact or joke after each interaction
+                funFactDiv.textContent = "Fun Fact: " + responses[Math.floor(Math.random() * responses.length)];
+            }
+        });
+
+        userInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                sendButton.click();
+            }
+        });
+    </script>
+</body>
+</html>
